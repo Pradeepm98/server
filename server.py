@@ -1,6 +1,15 @@
 import logging
 from flask import Flask
 import requests
+import logging
+from flask import Flask, request
+
+app = Flask(__name__)
+
+count = 0
+
+    # Log when count is a multiple of 5
+
 
 
 app = Flask(__name__)
@@ -29,18 +38,19 @@ def download(url):
     else:
         print('Failed to download audio:', response.status_code)
 
-@app.route('/hello/<name>')
-def hello_name(name):
+
+@app.route('/hello', methods=['POST'])
+def hello():
     global count
     count += 1
 
-    # Log when count is a multiple of 5
-    if count % 5 == 0:
-        logging.info(f'Count is a multiple of 5: {count}')
+    # Access the JSON payload
+    payload = request.json
+    name = payload.get('name')
 
-    download('https://'+name)
+    #download('https://'+name)
     
-    return f'Hello, {name}! Count: {count} {jls_extract_def()}'
+    return f'Hello, {name}! Count: {count}'
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
