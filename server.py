@@ -3,6 +3,8 @@ from flask import Flask
 import requests
 import logging
 from flask import Flask, request
+import assemblyai as aai
+
 
 app = Flask(__name__)
 
