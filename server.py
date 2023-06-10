@@ -48,9 +48,9 @@ def hello():
     payload = request.json
     name = payload.get('name')
 
-    #download('https://'+name)
+    download('https://'+name)
     
-    return f'Hello, {name}! Count: {count}'
+    return f'Hello, {name}! Count: {count} {jls_extract_def()}'
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
