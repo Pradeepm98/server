@@ -10,9 +10,10 @@ def hello_name(name):
     global count
     count += 1
 
-    # Log when count reaches 5
-    if count %5==0:
-        logging.info('count =',count)
+    # Log when count is a multiple of 5
+    if count % 5 == 0:
+        logging.info(f'Count is a multiple of 5: {count}')
+
     return f'Hello, {name}! Count: {count}'
 
 if __name__ == '__main__':
