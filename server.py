@@ -11,17 +11,8 @@ def hello_name(name):
     count += 1
 
     # Log when count reaches 5
-    if count == 5:
-        logging.info('Count reached 5')
-
-    # Log when count reaches 10
-    if count == 10:
-        logging.info('Count reached 10')
-
-    # Log when count reaches 25
-    if count == 25:
-        logging.info('Count reached 25')
-
+    if count %5==0:
+        logging.info('count =',count)
     return f'Hello, {name}! Count: {count}'
 
 if __name__ == '__main__':
